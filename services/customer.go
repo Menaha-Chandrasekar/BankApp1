@@ -59,9 +59,7 @@ func (c *Cust) UpdateCustomer(initialValue int, newValue int)(*mongo.UpdateResul
 	}
 	return result,nil
 }
-func (c *Cust) DeleteCustomer(initialValue int)(error){
-	
-	
+func (c *Cust) DeleteCustomer(initialValue int)(error){	
 	options:=bson.D{{Key: "account_id",Value: initialValue}}
 	_,err:=c.mongoCollection.DeleteOne(c.ctx,options)
 	if err!=nil{
