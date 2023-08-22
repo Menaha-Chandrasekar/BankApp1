@@ -49,7 +49,6 @@ func (c *Cust)FetchCustomer(id primitive.ObjectID)([]*models.Customer,error){
 }
 
 func (c *Cust) UpdateCustomer(initialValue int, newValue int)(*mongo.UpdateResult,error){
-	
 	filter:=bson.D{{"account_id",initialValue}}
 	update:=bson.D{{"$set",bson.D{{"account_id",newValue}}}}
 	result,err:=c.mongoCollection.UpdateOne(c.ctx,filter,update)
